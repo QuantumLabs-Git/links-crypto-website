@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "MS Sans Serif", sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    cursor: default;
+    background: #008080;
+}
+
+.desktop {
+    width: 100%;
+    height: calc(100vh - 40px);
+    background-image: url('branding/Background2.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Window Styling */
+.window {
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    box-shadow: 1px 1px 0 0 #000000;
+    width: 90%;
+    max-width: 800px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.window-header {
+    background: linear-gradient(to right, #000080, #1084d0);
+    color: white;
+    padding: 2px 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.window-title {
+    flex-grow: 1;
+    padding-left: 2px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.window-control {
+    width: 16px;
+    height: 14px;
+    background: #c0c0c0;
+    border: 1px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.window-control:active {
+    border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.window-body {
+    flex: 1;
+    overflow-y: auto;
+    background: white;
+    border: 2px inset #c0c0c0;
+    margin: 2px;
+}
+
+/* Blog Content */
+.blog-content {
+    padding: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.blog-post h1 {
+    color: #000080;
+    font-size: 24px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #c0c0c0;
+    padding-bottom: 10px;
+}
+
+.post-meta {
+    color: #808080;
+    font-size: 11px;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.blog-section {
+    margin-bottom: 30px;
+}
+
+.blog-section h2 {
+    color: #c5280e;
+    font-size: 18px;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #faf7f9, #fece6f);
+    padding: 5px 10px;
+    border-left: 4px solid #f4ae4a;
+}
+
+.blog-section p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: #333;
+}
+
+.blog-section ul {
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.blog-section li {
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #333;
+}
+
+.blog-section li strong {
+    color: #9e1909;
+}
+
+.highlight {
+    background: linear-gradient(to right, #fece6f, #faf7f9);
+    padding: 10px;
+    border-left: 4px solid #19c4c8;
+    font-weight: bold;
+    color: #000080;
+    margin-top: 20px;
+}
+
+/* Scrollbar styling */
+.window-body::-webkit-scrollbar {
+    width: 16px;
+}
+
+.window-body::-webkit-scrollbar-track {
+    background: #c0c0c0;
+    border: 1px solid #808080;
+}
+
+.window-body::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+}
+
+.window-body::-webkit-scrollbar-button {
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    height: 16px;
+}
+
+/* Taskbar */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px;
+    z-index: 1000;
+}
+
+.start-button {
+    height: 34px;
+    padding: 0 12px;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.start-button:active {
+    border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.start-button img {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #000080, #1084d0);
+    border-radius: 2px;
+}
+
+.system-tray {
+    padding: 0 8px;
+    border: 2px inset #c0c0c0;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    background: #c0c0c0;
+}
+
+.clock {
+    font-size: 11px;
+    padding: 0 4px;
+}

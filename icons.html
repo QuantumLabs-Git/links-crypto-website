@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Icons</title>
+</head>
+<body>
+    <h1>Icon Generator</h1>
+    <div id="icons"></div>
+    
+    <script>
+        // Create Windows 98 style icons
+        const icons = [
+            { name: 'video', color1: '#9e1909', color2: '#c5280e', text: '▶' },
+            { name: 'chart', color1: '#19c4c8', color2: '#1084d0', text: '📊' },
+            { name: 'blog', color1: '#f4ae4a', color2: '#fece6f', text: '📝' },
+            { name: 'pump', color1: '#c5280e', color2: '#f4ae4a', text: '🚀' },
+            { name: 'twitter', color1: '#000000', color2: '#333333', text: 'X' },
+            { name: 'apple', color1: '#808080', color2: '#c0c0c0', text: '🍎' },
+            { name: 'windows-logo', color1: '#000080', color2: '#1084d0', text: '⊞' },
+            { name: 'video-small', color1: '#9e1909', color2: '#c5280e', text: '▶' },
+            { name: 'chart-small', color1: '#19c4c8', color2: '#1084d0', text: '📊' },
+            { name: 'blog-small', color1: '#f4ae4a', color2: '#fece6f', text: '📝' },
+            { name: 'links-logo', color1: '#f4ae4a', color2: '#19c4c8', text: '🐱' }
+        ];
+
+        icons.forEach(icon => {
+            const canvas = document.createElement('canvas');
+            canvas.width = 32;
+            canvas.height = 32;
+            const ctx = canvas.getContext('2d');
+            
+            // Create gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 32, 32);
+            gradient.addColorStop(0, icon.color1);
+            gradient.addColorStop(1, icon.color2);
+            
+            // Draw rounded square
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.roundRect(0, 0, 32, 32, 4);
+            ctx.fill();
+            
+            // Add text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 20px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(icon.text, 16, 16);
+            
+            // Create download link
+            const link = document.createElement('a');
+            link.download = icon.name + '.png';
+            link.href = canvas.toDataURL();
+            link.textContent = 'Download ' + icon.name;
+            link.style.display = 'block';
+            link.style.margin = '10px';
+            
+            document.getElementById('icons').appendChild(canvas);
+            document.getElementById('icons').appendChild(link);
+        });
+    </script>
+</body>
+</html>

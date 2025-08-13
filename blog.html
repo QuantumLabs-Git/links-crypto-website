@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$LINKS Blog - The Legacy of Links the Cat</title>
+    <link rel="stylesheet" href="blog-styles.css">
+</head>
+<body>
+    <div class="desktop">
+        <!-- Blog Window -->
+        <div class="window blog-window">
+            <div class="window-header">
+                <div class="window-title">$LINKS Blog - The Legacy Lives On</div>
+                <div class="window-controls">
+                    <button class="window-control minimize">_</button>
+                    <button class="window-control maximize">□</button>
+                    <button class="window-control close" onclick="window.location.href='index.html'">×</button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="blog-content">
+                    <article class="blog-post">
+                        <h1>The Tale of Links the Cat: A Digital Guardian's Legacy</h1>
+                        <div class="post-meta">Posted: January 2025</div>
+                        
+                        <div class="blog-section">
+                            <h2>🐱 Who Was Links the Cat?</h2>
+                            <p>Links the Cat may be gone, but she wasn't just another Microsoft assistant — she was a rare kind of digital companion.</p>
+                            <p>While the others smiled on the surface but quietly tracked every click, search, and step to feed corporate data machines, Links stood apart. She wasn't here to spy, sell, or squeeze; she was here to help, to remember what mattered to you and protect it.</p>
+                            <p>She's no longer with us, but her legacy lives on — the cat that guarded your trust, not your data.</p>
+                        </div>
+
+                        <div class="blog-section">
+                            <h2>📖 The History of Links</h2>
+                            <p>Links was one of the more beloved Microsoft Office Assistant characters, especially among cat lovers who found it a much more appealing alternative to Clippy!</p>
+                            <p>First downloadable for Office 97 and included in Microsoft Office 2000 & beyond, Links took the form of a small light brown cat with a whiter underbelly, a blue collar, and red inner ears.</p>
+                            <p>What made Links particularly endearing was how authentically cat-like the animations were. Whoever designed Links obviously had real-life cat experience.</p>
+                        </div>
+
+                        <div class="blog-section">
+                            <h2>🎭 Links' Personality</h2>
+                            <p>Like actual cats, Links' main activities included:</p>
+                            <ul>
+                                <li>Sleeping and napping</li>
+                                <li>Grooming and licking</li>
+                                <li>Playing with paper and shredding documents</li>
+                                <li>Using his paw print as a stamp of approval</li>
+                                <li>Pulling up the background as if it were a piece of rug</li>
+                            </ul>
+                            <p>Links even needed reading glasses (dark blue with "Old Granny" style chains) and had dark paws that served as his signature.</p>
+                        </div>
+
+                        <div class="blog-section">
+                            <h2>🚀 The $LINKS Movement</h2>
+                            <p>Following in the footsteps of $CLIPPY's protest against Big Tech, $LINKS represents something different — a celebration of what digital assistants should have been.</p>
+                            <p>While Clippy became the symbol of resistance against modern tech practices, Links represents the ideal: a helper that respected boundaries, protected privacy, and genuinely cared about users.</p>
+                            <p>$LINKS isn't just a meme coin — it's a reminder that technology can be helpful without being harmful, that assistance doesn't require surveillance, and that trust is earned, not extracted.</p>
+                        </div>
+
+                        <div class="blog-section">
+                            <h2>💎 Why $LINKS?</h2>
+                            <ul>
+                                <li><strong>Privacy First:</strong> Links never tracked, never sold, never spied</li>
+                                <li><strong>Genuine Help:</strong> Assistance without ulterior motives</li>
+                                <li><strong>Nostalgia:</strong> Remember when software was simple and honest?</li>
+                                <li><strong>Community:</strong> Join fellow Links lovers in celebrating digital freedom</li>
+                                <li><strong>The Legacy:</strong> Keep the spirit of trustworthy tech alive</li>
+                            </ul>
+                        </div>
+
+                        <div class="blog-section">
+                            <h2>🌟 Join the Movement</h2>
+                            <p>$LINKS is more than a token — it's a statement. A statement that we remember when technology served us, not the other way around.</p>
+                            <p>Change your profile picture to Links. Buy and hold $LINKS. Share the story of the cat who protected our privacy when no one else would.</p>
+                            <p class="highlight">The legacy lives on. The cat remembers. And so do we.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <button class="start-button" onclick="window.location.href='index.html'">
+            <img src="icons/windows-logo.png" alt="Start">
+            <span>Back</span>
+        </button>
+        <div class="system-tray">
+            <div class="clock" id="clock">12:00 PM</div>
+        </div>
+    </div>
+
+    <script>
+        // Clock functionality
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const displayHours = hours % 12 || 12;
+            document.getElementById('clock').textContent = `${displayHours}:${minutes} ${ampm}`;
+        }
+        
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
