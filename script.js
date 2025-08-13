@@ -63,15 +63,20 @@ function openLink(type) {
     }
 }
 
-// Make contract window draggable
+// Make contract window draggable (with touch support)
 let isDragging = false;
 let dragOffset = { x: 0, y: 0 };
 
 const contractWindow = document.getElementById('contractWindow');
 const windowHeader = contractWindow.querySelector('.window-header');
 
+// Check if device is mobile
+const isMobile = window.matchMedia('(max-width: 767px)').matches;
+
+// Mouse events
 windowHeader.addEventListener('mousedown', function(e) {
     if (e.target.classList.contains('window-control')) return;
+    if (isMobile) return; // Disable dragging on mobile
     
     isDragging = true;
     dragOffset.x = e.clientX - contractWindow.offsetLeft;
@@ -81,13 +86,40 @@ windowHeader.addEventListener('mousedown', function(e) {
 });
 
 document.addEventListener('mousemove', function(e) {
-    if (isDragging) {
+    if (isDragging && !isMobile) {
         contractWindow.style.left = (e.clientX - dragOffset.x) + 'px';
         contractWindow.style.top = (e.clientY - dragOffset.y) + 'px';
     }
 });
 
 document.addEventListener('mouseup', function() {
+    isDragging = false;
+});
+
+// Touch events for mobile
+windowHeader.addEventListener('touchstart', function(e) {
+    if (e.target.classList.contains('window-control')) return;
+    if (isMobile) return; // Disable dragging on mobile
+    
+    isDragging = true;
+    const touch = e.touches[0];
+    dragOffset.x = touch.clientX - contractWindow.offsetLeft;
+    dragOffset.y = touch.clientY - contractWindow.offsetTop;
+    
+    contractWindow.style.zIndex = '1000';
+    e.preventDefault();
+});
+
+document.addEventListener('touchmove', function(e) {
+    if (isDragging && !isMobile) {
+        const touch = e.touches[0];
+        contractWindow.style.left = (touch.clientX - dragOffset.x) + 'px';
+        contractWindow.style.top = (touch.clientY - dragOffset.y) + 'px';
+        e.preventDefault();
+    }
+});
+
+document.addEventListener('touchend', function() {
     isDragging = false;
 });
 
@@ -124,11 +156,13 @@ let catPosition = { x: window.innerWidth - 270, y: window.innerHeight - 240 };
 linksCat.style.left = catPosition.x + 'px';
 linksCat.style.top = catPosition.y + 'px';
 
-// Make Links draggable
+// Make Links draggable (with touch support)
 let isDraggingCat = false;
 let catDragOffset = { x: 0, y: 0 };
 
+// Mouse events
 linksCat.addEventListener('mousedown', function(e) {
+    if (isMobile) return; // Disable dragging on mobile
     isDraggingCat = true;
     catDragOffset.x = e.clientX - linksCat.offsetLeft;
     catDragOffset.y = e.clientY - linksCat.offsetTop;
@@ -136,7 +170,7 @@ linksCat.addEventListener('mousedown', function(e) {
 });
 
 document.addEventListener('mousemove', function(e) {
-    if (isDraggingCat) {
+    if (isDraggingCat && !isMobile) {
         linksCat.style.left = (e.clientX - catDragOffset.x) + 'px';
         linksCat.style.top = (e.clientY - catDragOffset.y) + 'px';
     }
@@ -146,9 +180,33 @@ document.addEventListener('mouseup', function() {
     isDraggingCat = false;
 });
 
-// Random cat movements
+// Touch events for mobile
+linksCat.addEventListener('touchstart', function(e) {
+    if (isMobile) return; // Disable dragging on mobile
+    isDraggingCat = true;
+    const touch = e.touches[0];
+    catDragOffset.x = touch.clientX - linksCat.offsetLeft;
+    catDragOffset.y = touch.clientY - linksCat.offsetTop;
+    linksCat.style.zIndex = '999';
+    e.preventDefault();
+});
+
+document.addEventListener('touchmove', function(e) {
+    if (isDraggingCat && !isMobile) {
+        const touch = e.touches[0];
+        linksCat.style.left = (touch.clientX - catDragOffset.x) + 'px';
+        linksCat.style.top = (touch.clientY - catDragOffset.y) + 'px';
+        e.preventDefault();
+    }
+});
+
+document.addEventListener('touchend', function() {
+    isDraggingCat = false;
+});
+
+// Random cat movements (disabled on mobile for performance)
 function animateCat() {
-    if (!isDraggingCat && Math.random() > 0.98) {
+    if (!isMobile && !isDraggingCat && Math.random() > 0.98) {
         const newX = Math.random() * (window.innerWidth - 150);
         const newY = Math.random() * (window.innerHeight - 190);
         
@@ -162,7 +220,9 @@ function animateCat() {
     }
 }
 
-setInterval(animateCat, 3000);
+if (!isMobile) {
+    setInterval(animateCat, 3000);
+}
 
 // Easter egg: Double click Links for a message
 linksCat.addEventListener('dblclick', function() {

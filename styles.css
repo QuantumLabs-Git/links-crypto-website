@@ -15,7 +15,7 @@ body {
 .desktop {
     width: 100%;
     height: calc(100vh - 40px);
-    background-image: url('branding/Background1.jpeg');
+    background-image: url('Branding/Background1.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -313,5 +313,226 @@ body {
 .start-menu-item svg {
     width: 20px;
     height: 20px;
+}
+
+/* Mobile and Tablet Responsive Styles */
+/* Tablet styles (768px - 1023px) */
+@media screen and (max-width: 1023px) {
+    .contract-window {
+        width: 350px;
+        top: 10px;
+        right: 10px;
+    }
+    
+    .desktop-icons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 100%;
+        padding: 10px;
+        gap: 15px;
+    }
+    
+    .links-cat {
+        bottom: 60px;
+        right: 50px;
+    }
+    
+    .links-cat img {
+        width: 100px;
+    }
+}
+
+/* Mobile styles (max-width: 767px) */
+@media screen and (max-width: 767px) {
+    body {
+        overflow-x: hidden;
+    }
+    
+    .desktop {
+        height: calc(100vh - 50px);
+        background-size: cover;
+        background-position: center;
+    }
+    
+    /* Contract Window Mobile */
+    .contract-window {
+        width: calc(100% - 20px);
+        max-width: 350px;
+        top: 10px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+    
+    .contract-address-box {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .contract-address-box input {
+        width: 100%;
+    }
+    
+    .copy-btn {
+        width: 100%;
+        padding: 8px;
+    }
+    
+    /* Desktop Icons Mobile */
+    .desktop-icons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 10px;
+        max-width: 100%;
+        height: auto;
+        position: absolute;
+        bottom: 60px;
+        left: 0;
+        right: 0;
+    }
+    
+    .desktop-icon {
+        width: auto;
+        padding: 8px 4px;
+    }
+    
+    .desktop-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .desktop-icon span {
+        font-size: 10px;
+    }
+    
+    /* Links Cat Mobile */
+    .links-cat {
+        position: fixed;
+        bottom: 60px;
+        right: 10px;
+        z-index: 45;
+    }
+    
+    .links-cat img {
+        width: 80px;
+    }
+    
+    /* Taskbar Mobile */
+    .taskbar {
+        height: 50px;
+        padding: 4px;
+    }
+    
+    .start-button {
+        height: 42px;
+        padding: 0 8px;
+    }
+    
+    .start-button span {
+        display: none;
+    }
+    
+    .taskbar-icons {
+        gap: 4px;
+        padding: 0 4px;
+    }
+    
+    .taskbar-icon {
+        width: 42px;
+        height: 42px;
+    }
+    
+    .system-tray {
+        height: 40px;
+    }
+    
+    .clock {
+        font-size: 10px;
+    }
+    
+    /* Start Menu Mobile */
+    .start-menu {
+        width: 250px;
+        bottom: 50px;
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+    
+    .start-menu-item {
+        padding: 8px;
+        font-size: 13px;
+    }
+    
+    .start-menu-item svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    /* Touch optimizations */
+    .desktop-icon,
+    .taskbar-icon,
+    .start-button,
+    .start-menu-item,
+    .window-control,
+    .copy-btn {
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Prevent zoom on double tap */
+    * {
+        touch-action: manipulation;
+    }
+}
+
+/* Small mobile styles (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    .desktop-icons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 8px;
+    }
+    
+    .contract-window {
+        width: calc(100% - 16px);
+        font-size: 11px;
+    }
+    
+    .window-header {
+        padding: 4px;
+    }
+    
+    .links-cat img {
+        width: 60px;
+    }
+    
+    .start-menu {
+        width: 90%;
+        left: 5%;
+    }
+}
+
+/* Landscape mobile adjustments */
+@media screen and (max-width: 767px) and (orientation: landscape) {
+    .desktop {
+        height: calc(100vh - 40px);
+    }
+    
+    .taskbar {
+        height: 40px;
+    }
+    
+    .desktop-icons {
+        grid-template-columns: repeat(4, 1fr);
+        bottom: 50px;
+    }
+    
+    .contract-window {
+        top: 5px;
+    }
+    
+    .links-cat {
+        bottom: 50px;
+    }
 }
 
